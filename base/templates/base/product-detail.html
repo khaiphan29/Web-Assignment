@@ -1,0 +1,165 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block body_block %}
+    {% for p in product %}
+    <section id="phone-name-header">
+        <div class="phone-name">{{ p.name }}</div>
+        <div class="phone-price">From ${{ p.minprice }}</div>
+    </section>
+
+    
+    <section id="pro-details" class="section-p1">
+        <div class="product-image">
+            <img src="{{ p.image.url }}" id="main-img" width="100%" alt="">
+        </div>
+        <div class="product-option">
+            <h1>Buy {{ p.name }}</h1>
+            <h6>Payment: XXX</h6>
+            <div id="color-select">
+                <h6>Select color: </h6>
+                <button id="color-btn" class="btn-1"></button>
+                <button id="color-btn" class="btn-2"></button>
+                <button id="color-btn" class="btn-3"></button>
+                <button id="color-btn" class="btn-4"></button>
+                <button id="color-btn" class="btn-5"></button>
+                <button id="color-btn" class="btn-6"></button>
+            </div>
+            <div id="cap-select">
+                <h6>Select capacity: </h6>
+                <button id="cap-btn">64Gb</button>
+                <button id="cap-btn">128Gb</button>
+                <button id="cap-btn">256Gb</button>
+            </div>
+            <input type="number" value="1">
+            <button class="normal cart-btn">Add to Cart</button>
+        </div>
+    </section>
+
+    <section id="pro-spec">
+        <h1>Technical Specification</h1>
+        <ul id="specs-list">
+            <li class="specs-detail">
+                <div class="specs-left">
+                    <p>Capacity</p>
+                </div>
+                <div class="specs-right">
+                    {{ p.capacity }}
+                </div>
+            </li>
+            <li class="specs-detail">
+                <div class="specs-left">
+                    <p>Screen size</p>
+                </div>
+                <div class="specs-right">
+                    <p>{{ p.screensize }}</p>
+                </div>
+            </li>
+            <li class="specs-detail">
+                <div class="specs-left">
+                    <p>Screen resolution</p>
+                </div>
+                <div class="specs-right">
+                    <p>{{ p.screenres }}</p>
+                </div>
+            </li>
+            <li class="specs-detail">
+                <div class="specs-left">
+                    <p>Chip</p>
+                </div>
+                <div class="specs-right">
+                    <p>{{ p.chip }}</p>
+                </div>
+            </li>
+            <li class="specs-detail">
+                <div class="specs-left">
+                    <p>Camera</p>
+                </div>
+                <div class="specs-right">
+                    <p>{{ p.camera }}</p>
+                </div>
+            </li>
+            <li class="specs-detail">
+                <div class="specs-left">
+                    <p>Video Recording</p>
+                </div>
+                <div class="specs-right">
+                    <pre style="font-family: 'SF-Pro-Text', sans-serif; font-size: 16px">{{ p.videorecording }}</pre>
+                </div>
+            </li>
+            <li class="specs-detail">
+                <div class="specs-left">
+                    <p>Power and Battery</p>
+                </div>
+                <div class="specs-right">
+                    <pre style="font-family: 'SF-Pro-Text', sans-serif; font-size: 16px">{{ p.power }}</pre>
+                </div>
+            </li>
+            <li class="specs-detail">
+                <div class="specs-left">
+                    <p>Operating System</p>
+                </div>
+                <div class="specs-right">
+                    <p>{{ p.os }}</p>
+                </div>
+            </li>
+            <li class="specs-detail">
+                <div class="specs-left">
+                    <p>In the Box</p>
+                </div>
+                <div class="specs-right">
+                    <p>{{ p.box }}</p>
+                </div>
+            </li>
+        </ul>
+    </section>
+    {% endfor %}
+
+    <section id="slider">
+        <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="{% static 'img/products/iphone/iphone-12-gallery1-2021.jpg' %}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'img/products/iphone/iphone-12-gallery2-2021.jpg' %}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'img/products/iphone/iphone-12-gallery3-2021.jpg' %}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'img/products/iphone/iphone-12-gallery4-2021_GEO_US.jpg' %}" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="{% static 'img/products/iphone/iphone-12-gallery5-2021_GEO_US.jpg' %}" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" style="background-image: linear-gradient(to right, rgba(216,216,216,1), rgba(216,216,216,0));" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" style="background-image: linear-gradient(to right, rgba(216,216,216,0), rgba(216,216,216,1));" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </section>
+
+
+    <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+            <h4>Sign Up For Newsletter</h4>
+            <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+        </div>
+        <div class="form">
+            <input type="text" placeholder="Your email address">
+            <button class="normal">Sign Up</button>
+        </div>
+    </section>
+{% endblock %}

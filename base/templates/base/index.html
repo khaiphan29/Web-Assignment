@@ -1,0 +1,108 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body_block %}
+<section id="slider">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="{% static 'img/slider/slide-1.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/slider/slide-2.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="{% static 'img/slider/slide-3.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" style="background-image: linear-gradient(to right, rgba(216,216,216,1), rgba(216,216,216,0));" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" style="background-image: linear-gradient(to right, rgba(216,216,216,0), rgba(216,216,216,1));" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+</section>
+
+<section id="product1" class="section-p1">
+    <h2>iPhone</h2>
+    <div class="pro-container">
+        {% for product in apples %}
+        <div class="pro" onclick="window.location = 'products/{{ product.brand }}/{{ product.path }}'">
+            <img src= "{{ product.image.url }}" alt="">
+            <div class="des">
+                <h3>{{ product.name }}</h3>
+                <h4>From ${{ product.minprice }}</h4>
+            </div>
+            <a href="#">
+                <i class="fa-solid fa-cart-shopping cart"></i>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="banner" class="section-m1" style="background-image: url('{%static 'img/banner/mobile-banner-1440x480.jpeg'%}');">
+    <h4>Hot Deals</h4>
+    <h2>Up to <span>70% Off</span> - All Phones & Accessories</h2>
+    <button class="normal">Explore more</button>
+</section>
+
+<section id="product1" class="section-p1">
+    <h2>Samsung</h2>
+    <div class="pro-container">
+        {% for product in ss %}
+        <div class="pro">
+            <img src= "{{ product.image.url }}" alt="">
+            <div class="des">
+                <h3>{{ product.name }}</h3>
+                <!-- <div class="star">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div> -->
+                <h4>From ${{ product.minprice }}</h4>
+            </div>
+            <a href="#">
+                <i class="fa-solid fa-cart-shopping cart"></i>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section id="sm-banner" class="section-p1">
+    <div class="banner-box" style="background-image: url({% static 'img/banner/apple-green.png' %});">
+        <h4>Coming soon</h4>
+        <h2>iPhone 13 series</h2>
+        <span>Brand new iPhone 13 with awesome green color</span>
+        <button class="white">Learn more</button>
+    </div>
+    <div class="banner-box" style="background-image: url({% static 'img/banner/samsung-zfold.jpg' %});">
+        <h4>Now available</h4>
+        <h2>Galaxy Z Fold 3</h2>
+        <span>Feel the premium on your hand</span>
+        <button class="white">Learn more</button>
+    </div>
+</section>
+
+<section id="newsletter" class="section-p1 section-m1">
+    <div class="newstext">
+        <h4>Sign Up For Newsletter</h4>
+        <p>Get E-mail updates about our latest shop and <span>special offers.</span></p>
+    </div>
+    <div class="form">
+        <input type="text" placeholder="Your email address">
+        <button class="normal">Sign Up</button>
+    </div>
+</section>
+{% endblock %}
